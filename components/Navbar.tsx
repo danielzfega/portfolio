@@ -9,9 +9,9 @@ export const Navbar = () => {
     ];
 
   return (
-    <nav className='w-2xl h-15 flex items-center justify-between border border-dashed border-[#27272a]'>
+    <nav className='font-doto w-2xl h-15 flex items-center justify-between border border-dashed border-[#27272a]'>
         <div className="border-r border-[#27272a] border-dashed p-3 h-full w-[30%] flex items-center">
-            <h1 className="text-zinc-300 text-xl font-doto">0FEGZ</h1>
+            <h1 className="font-doto text-xl font-black tracking-tighter md:text-2xl">0FEGZ</h1>
         </div>
 
         <div className="flex w-[70%] h-full justify-around items-center">
