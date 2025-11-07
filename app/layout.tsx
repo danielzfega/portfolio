@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree, Doto } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/Navbar";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${figtree.variable} ${doto.variable} antialiased`}
       >
+        <Navbar/>
         {children}
       </body>
     </html>
