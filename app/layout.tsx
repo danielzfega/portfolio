@@ -14,7 +14,7 @@ const doto = Doto({
 });
 
 export const metadata: Metadata = {
-  title: "Ꝋ𐌅𐌄ᏵⱿ - 𐌔Ꝋ𐌅𐌕Ꮤ𐌀𐌓𐌄 𐌄𐌍Ᏽ𐌉𐌍𐌄𐌄𐌓",
+  title: "ᔦꝊᔦ𐌊𐋅𐌀𐌉 - 𐌔Ꝋ𐌅𐌕Ꮤ𐌀𐌓𐌄 𐌄𐌍Ᏽ𐌉𐌍𐌄𐌄𐌓",
   description: "Built with Next.js, Tailwind CSS, and TypeScript.",
 };
 
