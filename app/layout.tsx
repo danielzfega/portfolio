@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Doto, Micro_5, Irish_Grover } from "next/font/google";
+import { Figtree, Doto, Micro_5, Irish_Grover, Calistoga, Denk_One } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 
@@ -19,8 +19,21 @@ const irishGrover = Irish_Grover({
   weight: "400"
 });
 
+const calistoga = Calistoga({
+  variable: "--font-calistoga",
+  subsets: ["latin"],
+  weight: "400"
+});
+
+
 const micro_5 = Micro_5({
   variable: "--font-micro-5",
+  subsets: ["latin"],
+  weight: "400"
+});
+
+const denkOne = Denk_One({
+  variable: "--font-denk-one",
   subsets: ["latin"],
   weight: "400"
 });
@@ -40,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${figtree.variable} ${doto.variable} ${micro_5.variable} ${irishGrover.variable} antialiased flex flex-col items-center `}
+        className={`${figtree.variable} ${doto.variable} ${micro_5.variable} ${irishGrover.variable} ${calistoga.variable} ${denkOne.variable} antialiased flex flex-col items-center `}
       >
         <Navbar/>
         {children}
