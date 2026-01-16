@@ -21,6 +21,30 @@ export default function ExperiencePage() {
         {/* Experience List */}
         <div className="flex flex-col gap-0 border-t border-[#27272a] border-dashed">
             <ExperienceItem 
+                company="FangFire Labs"
+                role="Founder"
+                type="Remote"
+                period="Jan 2026 - date"
+                logo="/fangfirelabs.jpeg"
+                contributions={[
+                    "Developing game scripts with Lua and C#, Unity, and Unreal Engine.",
+                    "Designing game concepts, interfaces, environment, animations, VFX and prototypes."
+                ]}
+                skills={["C#", "Lua", "Unity", "C++", "Environment Art"]}
+            />
+            <ExperienceItem 
+                company="GRVT8"
+                role="Founder"
+                type="Remote"
+                period="Aug 2025 - date"
+                logo="/grvt8.jpg"
+                contributions={[
+                    "Designed and developed Keihatsu, an interactive manwha, webtoon & manga reader app.",
+                    "Built Revixor, an AI powered learning assistant for stuents covering WAEC & JAMB exams."
+                ]}
+                skills={["System Design", "Typescript", "Dart", "Flutter", "OpenRouter"]}
+            />
+            <ExperienceItem 
                 company="HNG Tech"
                 role="Backend Developer"
                 type="Remote"
