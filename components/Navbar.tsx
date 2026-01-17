@@ -14,10 +14,10 @@ export const Navbar = () => {
 
   return (
     <>
-        <nav className='sticky top-0 z-50 bg-[#09090b]/80 backdrop-blur-md font-doto w-full max-w-5xl h-16 flex items-center justify-between border-b border-dashed border-[#27272a] md:border md:rounded-2xl md:top-4 md:mx-auto md:w-[95%]'>
+        <nav className='sticky top-0 z-50 bg-[#09090b]/80 backdrop-blur-md font-doto w-full max-w-[60rem] h-20 flex items-center justify-between border-b border-dashed border-[#27272a] md:border md:mx-auto md:w-[95%]'>
             {/* Logo */}
-            <a href="/" className="px-6 h-full flex items-center hover:bg-zinc-900/50 transition-colors border-r border-[#27272a] border-dashed md:border-none md:rounded-l-2xl">
-                <h1 className="font-denk-one text-xl font-black tracking-tighter md:text-2xl text-white">404KHAI</h1>
+            <a href="/" className="px-6 h-full flex items-center hover:bg-zinc-900/50 transition-colors border-r border-[#27272a] border-dashed md:border-none">
+                <h1 className="font-denk-one text-xl font-black tracking-tighter md:text-3xl text-white">404KHAI</h1>
             </a>
 
             {/* Desktop Navigation */}
@@ -26,7 +26,7 @@ export const Navbar = () => {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="font-irish-grover text-zinc-400 hover:text-white transition-colors duration-200 text-sm font-medium uppercase tracking-wider"
+                      className="font-irish-grover text-zinc-400 hover:text-white transition-colors duration-200 text-md font-medium uppercase tracking-wider"
                     >
                       /{item.name}
                     </a>
@@ -54,7 +54,7 @@ export const Navbar = () => {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="font-figtree text-zinc-300 hover:text-white text-2xl font-medium py-4 border-b border-dashed border-[#27272a]"
+                      className="font-irish-grover text-zinc-300 hover:text-white text-2xl font-medium py-4 border-b border-dashed border-[#27272a]"
                     >
                       /{item.name}
                     </a>
