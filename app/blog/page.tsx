@@ -68,7 +68,7 @@ export default function BlogPage() {
             Blog
           </h1>
           <p className="font-figtree text-zinc-400 text-xl md:text-2xl max-w-2xl">
-            My thoughts & articles on software engineering, AI, UI Design, and Game Development.
+            My thoughts & dev-logs on software engineering, AI, UI Design, and Game Development.
           </p>
         </div>
 

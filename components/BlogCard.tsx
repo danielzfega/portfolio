@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface BlogCardProps {
+  id?: number | string;
   date: string;
   readTime: string;
   title: string;
@@ -9,14 +11,15 @@ interface BlogCardProps {
 }
 
 export const BlogCard: React.FC<BlogCardProps> = ({
+  id,
   date,
   readTime,
   title,
   description,
   tags,
 }) => {
-  return (
-    <div className="relative p-8 bg-[#09090b] border border-[#27272a] group transition-all duration-300 hover:border-zinc-600">
+  const CardContent = () => (
+    <div className="relative p-8 bg-[#09090b] border border-[#27272a] group transition-all duration-300 hover:border-zinc-600 cursor-pointer h-full">
       {/* Corner Borders */}
       <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-white transition-all duration-300 group-hover:w-4 group-hover:h-4" />
       <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white transition-all duration-300 group-hover:w-4 group-hover:h-4" />
@@ -52,4 +55,14 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       </div>
     </div>
   );
+
+  if (id) {
+    return (
+      <Link href={`/blog/${id}`}>
+        <CardContent />
+      </Link>
+    );
+  }
+
+  return <CardContent />;
 };
