@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { TerminalBlock } from '@/components/TerminalBlock';
+import { ArrowRight, ArrowLeft, CaretDownFill, CaretUpFill } from 'react-bootstrap-icons';
 
 const BLOG_CONTENT: Record<string, any> = {
   "1": {
@@ -146,24 +147,24 @@ export default function BlogPostPage() {
 
         {tocItems.length > 0 && (
           <div className="mb-10">
-            <div className="rounded-2xl border border-zinc-900 bg-[#111111]">
+            <div className="border border-zinc-900 bg-[#0a0a0a]">
               <button
                 type="button"
                 onClick={() => setIsTocOpen(!isTocOpen)}
-                className="w-full flex items-center justify-between px-5 py-3 text-left"
+                className="w-full flex items-center justify-between px-5 py-4 text-left mb-3"
               >
-                <span className="text-zinc-300 text-sm font-medium">Table of Contents</span>
+                <span className="text-zinc-300 text-xl font-calistoga">Table of Contents</span>
                 <span className="text-zinc-500 text-xs">
-                  {isTocOpen ? "˄" : "˅"}
+                  {isTocOpen ? <CaretDownFill/> : <CaretUpFill className="rotate-180"/>}
                 </span>
               </button>
               {isTocOpen && (
-                <div className="px-5 pb-4 space-y-2">
+                <div className="px-5 pb-5 space-y-3">
                   {tocItems.map((item) => (
                     <a
                       key={item.href}
                       href={item.href}
-                      className="block text-zinc-200 text-sm md:text-base hover:text-white transition-colors"
+                      className="block text-zinc-400 text-sm md:text-base hover:text-white transition-colors"
                     >
                       {item.label}
                     </a>
@@ -179,42 +180,55 @@ export default function BlogPostPage() {
         </div>
         
         <div className="mt-20 pt-10 border-t border-zinc-800 flex flex-col gap-6">
-          <Link
-            href="/blog"
-            className="text-zinc-400 hover:text-white flex items-center gap-2 transition-colors w-fit"
-          >
-            ← Back to Blog
-          </Link>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {prevPost && prevId && (
+            {prevPost && prevId ? (
               <Link
                 href={`/blog/${prevId}`}
                 className="flex flex-col items-start justify-center rounded-2xl border border-zinc-900 bg-[#111111] px-6 py-4 hover:border-zinc-700 hover:bg-zinc-900/70 transition-colors"
               >
                 <span className="text-zinc-500 text-xs mb-1 flex items-center gap-1">
-                  <span>←</span>
+                  <ArrowLeft/>
                   <span>Previous post</span>
                 </span>
                 <span className="text-zinc-100 font-figtree text-sm md:text-base leading-snug">
                   {prevPost.title}
                 </span>
               </Link>
+            ) : (
+              <div className="flex flex-col items-start justify-center rounded-2xl border border-zinc-900 bg-[#111111] px-6 py-4 opacity-60 cursor-default">
+                <span className="text-zinc-500 text-xs mb-1 flex items-center gap-1">
+                  <ArrowLeft/>
+                  <span>Previous post</span>
+                </span>
+                <span className="text-zinc-100 font-figtree text-sm md:text-base leading-snug">
+                  Coming soon
+                </span>
+              </div>
             )}
 
-            {nextPost && nextId && (
+            {nextPost && nextId ? (
               <Link
                 href={`/blog/${nextId}`}
                 className="flex flex-col items-start justify-center rounded-2xl border border-zinc-900 bg-[#111111] px-6 py-4 hover:border-zinc-700 hover:bg-zinc-900/70 transition-colors"
               >
                 <span className="text-zinc-500 text-xs mb-1 flex items-center gap-1">
                   <span>Next post</span>
-                  <span>→</span>
+                  <ArrowRight/>
                 </span>
                 <span className="text-zinc-100 font-figtree text-sm md:text-base leading-snug">
                   {nextPost.title}
                 </span>
               </Link>
+            ) : (
+              <div className="flex flex-col items-start justify-center rounded-2xl border border-zinc-900 bg-[#111111] px-6 py-4 opacity-60 cursor-default">
+                <span className="text-zinc-500 text-xs mb-1 flex items-center gap-1">
+                  <span>Next post</span>
+                  <ArrowRight/>
+                </span>
+                <span className="text-zinc-100 font-figtree text-sm md:text-base leading-snug">
+                  Coming soon
+                </span>
+              </div>
             )}
           </div>
         </div>
