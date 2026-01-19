@@ -233,7 +233,37 @@ export default function ProjectDetailPage() {
 
           <div className="flex flex-col gap-6">
 
-            <div className="border-t border-zinc-800 pt-4 flex flex-col gap-4">
+            <div className="flex flex-col gap-10">
+              <div>
+                <h2 className="font-calistoga text-xs text-zinc-400 uppercase tracking-[0.2em]">
+                  Links
+                </h2>
+                <div className="mt-2 flex flex-wrap gap-3">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-[#050509] px-3 py-2 text-xs font-figtree text-zinc-200 hover:border-zinc-400"
+                    >
+                      <GithubIcon />
+                      <span>GitHub</span>
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-[#050509] px-3 py-2 text-xs font-figtree text-zinc-200 hover:border-zinc-400"
+                    >
+                      <GlobeIcon />
+                      <span>Live site</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+
               <div>
                 <h2 className="font-calistoga text-xs text-zinc-400 uppercase tracking-[0.2em]">
                   Skills used
@@ -250,30 +280,6 @@ export default function ProjectDetailPage() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-[#050509] px-3 py-2 text-xs font-figtree text-zinc-200 hover:border-zinc-400"
-                  >
-                    <GithubIcon />
-                    <span>GitHub</span>
-                  </a>
-                )}
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-[#050509] px-3 py-2 text-xs font-figtree text-zinc-200 hover:border-zinc-400"
-                  >
-                    <GlobeIcon />
-                    <span>Live site</span>
-                  </a>
-                )}
-              </div>
             </div>
           </div>
         </div>
