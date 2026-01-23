@@ -29,6 +29,26 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Blog Management (Keystatic)
+
+This project uses [Keystatic](https://keystatic.com/) as a headless CMS for managing blog content.
+
+### Accessing the Admin UI
+1. Ensure the development server is running (`npm run dev`).
+2. Visit [http://localhost:3000/keystatic](http://localhost:3000/keystatic) (or the port your dev server is running on).
+
+### Workflow
+1. **Create/Edit Posts**: Use the visual editor to write your content.
+   - **Images**: Drag and drop images directly into the editor.
+   - **Custom Blocks**: Type `/` to insert custom components like the `TerminalBlock` for code snippets.
+2. **Save Changes**: Clicking "Save" or "Create" will write the content to `content/posts/` (as `.mdoc` files) and images to `public/images/posts/` on your local filesystem.
+3. **Commit & Push**: Since content is stored as files, you must commit the changes to git to publish them.
+   ```bash
+   git add content/posts public/images/posts
+   git commit -m "Add new blog post"
+   git push
+   ```
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
