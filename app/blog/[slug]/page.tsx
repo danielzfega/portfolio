@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { reader } from '@/lib/keystatic';
-import { DocumentRenderer, DocumentRendererProps } from '@keystatic/next/renderer';
+import { DocumentRenderer, DocumentRendererProps } from '@keystatic/core/renderer';
 import { TerminalBlock } from '@/components/TerminalBlock';
 import { ArrowLeft } from 'react-bootstrap-icons';
 
@@ -18,10 +18,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const content = await post.content();
 
   const renderers: DocumentRendererProps['renderers'] = {
+    inline: {
+        bold: ({ children }) => <strong>{children}</strong>,
+    },
     block: {
-      paragraph: ({ children }) => <p className="text-zinc-400 mb-6 leading-relaxed">{children}</p>,
-      heading: ({ level, children }) => {
-        const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
+      paragraph: ({ children }: { children: React.ReactNode }) => <p className="text-zinc-400 mb-6 leading-relaxed">{children}</p>,
+      heading: ({ level, children }: { level: number; children: React.ReactNode }) => {
+        const HeadingTag = `h${level}` as keyof React.JSX.IntrinsicElements;
         const className = level === 2 
           ? "text-3xl font-bold text-white mt-12 mb-6" 
           : level === 3 
@@ -41,15 +44,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       )
     },
-    componentBlocks: {
-      TerminalBlock: (props) => (
-        <TerminalBlock 
-          command={props.command} 
-          output={props.output} 
-          title={props.title} 
-        />
-      ),
-    },
+  };
+
+  const componentBlocks = {
+    TerminalBlock: (props: { command: string; output?: string; title?: string }) => (
+      <TerminalBlock 
+        command={props.command} 
+        output={props.output} 
+        title={props.title} 
+      />
+    ),
   };
 
   return (
@@ -96,7 +100,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
             {/* Content */}
             <div>
-              <DocumentRenderer document={content} renderers={renderers} componentBlocks={renderers.componentBlocks} />
+              <DocumentRenderer document={content} renderers={renderers} componentBlocks={componentBlocks} />
             </div>
           </div>
         </div>
