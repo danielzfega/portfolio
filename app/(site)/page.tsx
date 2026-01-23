@@ -32,7 +32,7 @@ export default function Home() {
         
         <ul className="flex flex-col gap-4 text-zinc-300 font-figtree text-lg list-disc pl-5 marker:text-zinc-600">
            <li>
-             I'm a <b className="text-[#ffa600] font-calistoga">Creative Systems Engineer</b> who is intrigued by Operating Systems, Game development, Animation and Interactive UI.
+             I'm a <b className="text-[#ffff00] font-calistoga">Creative Systems Engineer</b> who is intrigued by Operating Systems, Game development, Animation and Interactive UI.
            </li>
            <li>
              <b>4+</b> years of experience in the industry, specializing in backend development with a focus on performance and scalability.
@@ -57,8 +57,8 @@ export default function Home() {
         {/* Hero Project */}
         <FeaturedProject 
           title="End-to-End AI Platform Revolution"
-          subtitle="Ellum Ai"
-          description="ELLUM is a comprehensive AI platform that revolutionizes business operations through intelligent automation, helping companies streamline sales, marketing, and administrative tasks with advanced AI agents."
+          subtitle="Oculus"
+          description="Oculus is a comprehensive AI platform that revolutionizes business operations through intelligent automation, helping companies streamline sales, marketing, and administrative tasks with advanced AI agents."
           linkText="Read About Ellum"
           linkUrl="#"
           logo={<EllumLogo />}
@@ -69,17 +69,17 @@ export default function Home() {
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <ProjectCard 
-            title="Decentralized site-builder for creators"
-            subtitle="WalPress"
-            category="DECENTRALIZED APP / WEB3..."
-            description="A decentralized content management system allowing creators to build and host censorship-resistant websites on the blockchain."
+            title="New gen manwha / manga reader app"
+            subtitle="Keihatsu"
+            category="ENTERTAINMET"
+            description="A social manwha reader app with over 2k users and a vibrant community."
             logo={<WalPressLogo />}
           />
           <ProjectCard 
-            title="AI-driven grading and classroom management"
-            subtitle="Gradific"
-            category="EDTECH / AI AUTOMATION"
-            description="Streamlining the educational process with AI-powered grading assistance and comprehensive classroom analytics for teachers."
+            title="AI-driven learning and exam practice for West Africa"
+            subtitle="Revixor"
+            category="EDTECH"
+            description="Transforming your exam study sessions with intelligent prompts, AI-powered explanations & step-by-step solutions."
             logo={<GradificLogo />}
           />
         </div>
