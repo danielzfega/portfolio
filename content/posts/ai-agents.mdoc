@@ -1,0 +1,58 @@
+---
+title: AI Agents & Workflows
+date: January 23, 2026
+category: SWE
+readTime: 45 min read
+description: A comprehensive breakdown of the fundamentals of LLMs, AI Agents and AI Workflows.
+tags:
+  - AI
+  - AI Agents
+  - LLMs
+  - AI Workflows
+---
+## LLMs
+
+An LLM (Large Language Model) in AI is a powerful deep learning model trained on massive text datasets to understand, generate, and predict human-like language, functioning as a core component of Generative AI to power chatbots, summarize documents, translate languages, and create content by recognizing complex patterns and context in text.
+ChatGPT, Gemini and Claude are widely used applications built on / powered by LLMs.
+
+## Key Distinctions
+- LLM (e.g., GPT-4): The foundational, core model trained on vast text data to understand and generate human-like text.
+- ChatGPT: An application interface that uses the LLM as its brain, adding features like conversation history, safety filters, and the ability to use external tools (like browsing or code execution) to create a more capable AI assistant.
+
+## Examples of LLMS
+
+- GPT-5/4/4o (OpenAI).
+- Gemini 3 Pro (Google).
+- Claude Opus 4.5 (Anthropic).
+- Kimi-K2 Thinking (Moonshot AI)
+- Qwen3-Max (Alibaba).
+- DeepSeek-R1 (DeepSeek-AI)
+- LLaMA 4 Scout (Meta).
+- Command (Cohere).
+
+## Key Traits of LLMs
+
+- **Open Domain Knowledge**: LLMs have access to a vast amount of general knowledge, but they are not trained on proprietary information e.g personal info or internal company data.
+- **Passive**: LLMs are passive in the sense that they do not generate text on their own. Instead, they generate text in response to user prompts.
+- **Vast Training Data**: LLMs are trained on vast amounts of text data, enabling them to understand and generate human-like text.
+- **Contextual Understanding**: LLMs can understand the context of a given prompt and generate text that is relevant to the context.
+- **Flexibility**: LLMs can be fine-tuned for specific tasks, allowing them to perform a wide range of natural language processing tasks.
+
+## AI Workflows
+
+If a user tells an LLM: "Everytime I ask for a personal event, perform a searcch query and fetch data from my calendar before responding", that is a simple AI Workflow.
+
+![Server Architecture](/fangfirelabs.jpeg)
+
+Figure 1: Visualizing data flow across region boundaries.
+
+## Implementing Raft Consensus
+
+One of the most popular algorithms for managing a replicated log is Raft. It's designed to be understandable. Here is how you might verify the status of a Raft node in a production cluster.
+
+{% TerminalBlock
+   command="curl -X GET http://localhost:8080/raft/status"
+   output="{\n  \"state\": \"Leader\",\n  \"term\": 42,\n  \"commit_index\": 1024,\n  \"applied_index\": 1024,\n  \"peers\": [\"10.0.0.2\", \"10.0.0.3\"]\n}"
+   title="terminal" /%}
+
+The output confirms that our node is currently the `Leader` for term 42. All entries up to index 1024 have been committed and applied to the state machine.
