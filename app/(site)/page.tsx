@@ -32,7 +32,7 @@ export default function Home() {
         
         <ul className="flex flex-col gap-4 text-zinc-300 font-figtree text-lg list-disc pl-5 marker:text-zinc-600">
            <li>
-             I'm a <b className="text-[#a8e64c] font-calistoga">Creative Systems Engineer</b> who is intrigued by Operating Systems, Game development, Animation and Interactive UI.
+             I'm a <b className="text-[#a8e64c] font-calistoga">Creative Systems Engineer</b> who is intrigued by Operating Systems, Game Development, Animation and Interactive UI.
            </li>
            <li>
              <b>4+</b> years of experience in the industry, specializing in backend development with a focus on performance and scalability.
@@ -56,14 +56,14 @@ export default function Home() {
 
         {/* Hero Project */}
         <FeaturedProject 
-          title="Agentic AI Chatbot"
-          subtitle="Manticore"
-          description="Manticore is a semi-autonomous agentic AI that retains context across multiple devices and can independently operate using its knowledge base."
-          linkText="Try out Manticore"
+          title="Agentic Game Developer"
+          subtitle="Atlas"
+          description="Atlas is a semi-autonomous agentic AI where 2D game mechanics, systems and worlds are shaped"
+          linkText="Try out Atlas"
           linkUrl="#"
-          logo="/manticore.png"
+          logo="/atlas.png"
           // Using a colored placeholder since we don't have the image
-          imageUrl="/oculus.png" 
+          imageUrl="/atlasUI.png" 
         />
 
         {/* Project Grid */}
@@ -73,7 +73,7 @@ export default function Home() {
             subtitle="Keihatsu"
             category="ENTERTAINMET"
             description="A social manwha reader app with over 2k users and a vibrant community."
-            logo="/keihatsu.jpeg"
+            logo="/keihatsu.png"
           />
           <ProjectCard 
             title="AI-driven learning and exam practice for West Africa"
