@@ -8,6 +8,11 @@ import { ArrowLeft, ArrowRight, CaretDownFill, CaretUpFill } from 'react-bootstr
 import TableOfContents from '@/components/TableOfContents';
 import MobileTOC from '@/components/MobileTOC';
 
+export async function generateStaticParams() {
+  const slugs = await reader.collections.posts.list();
+  return slugs.map((slug) => ({ slug }));
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await reader.collections.posts.read(slug);
