@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       heading: ({ level, children }: { level: number; children: React.ReactNode }) => {
         const HeadingTag = `h${level}` as keyof React.JSX.IntrinsicElements;
         const className = level === 2 
-          ? "text-3xl font-bold text-white mt-12 mb-6" 
+          ? "text-4xl font-bold text-white mt-12 mb-6 font-denk-one" 
           : level === 3 
           ? "text-md font-bold text-white mt-8 mb-4" 
           : "text-xl font-bold text-white mt-6 mb-3";
