@@ -4,6 +4,7 @@ import React from 'react';
 
 interface WorkflowTool {
   imageSrc?: string;
+  image?: string;
   label: string;
 }
 
