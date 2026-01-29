@@ -13,8 +13,21 @@ interface WorkflowDiagramProps {
 
 export const WorkflowDiagram: React.FC<WorkflowDiagramProps> = ({ tools }) => {
   return (
-    <div className="w-full my-12 p-8 rounded-xl border border-zinc-800 bg-[#0e0e11] flex flex-col items-center gap-12 overflow-hidden">
-      {/* Main Pipeline */}
+    <div className="w-full my-12 rounded-lg border border-zinc-800 bg-[#0e0e11] flex flex-col items-center overflow-hidden shadow-2xl">
+      {/* Terminal Header */}
+      <div className="w-full flex items-center justify-between px-4 py-2 bg-[#18181b] border-b border-zinc-800">
+        <div className="flex items-center gap-3">
+          <div className="flex gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-500/80" />
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+          </div>
+          <div className="text-zinc-500 text-xs font-mono">workflow-diagram</div>
+        </div>
+      </div>
+
+      <div className="p-8 md:p-12 w-full flex flex-col items-center gap-12">
+        {/* Main Pipeline */}
       <div className="flex items-center gap-4 md:gap-8 w-full justify-center">
         {/* Input Node */}
         <div className="flex flex-col items-center gap-2">
@@ -83,6 +96,7 @@ export const WorkflowDiagram: React.FC<WorkflowDiagramProps> = ({ tools }) => {
               ))}
           </div>
       )}
+      </div>
     </div>
   );
 };
