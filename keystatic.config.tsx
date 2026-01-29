@@ -61,10 +61,10 @@ export default config({
                 tools: fields.array(
                   fields.object({
                     label: fields.text({ label: 'Label' }),
-                    image: fields.image({
+                    imageSrc: fields.image({
                       label: 'Icon/Image',
-                      directory: 'public/images/diagrams',
-                      publicPath: '/images/diagrams',
+                      directory: 'public/images/posts',
+                      publicPath: '/images/posts',
                     }),
                   }),
                   {

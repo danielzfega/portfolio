@@ -26,46 +26,39 @@ export const WorkflowDiagram: React.FC<WorkflowDiagramProps> = ({ tools }) => {
         </div>
       </div>
 
-      <div className="p-8 md:p-12 w-full flex flex-col items-center gap-12">
+      <div className="p-8 md:p-12 w-full flex flex-col items-center gap-16">
         {/* Main Pipeline */}
-      <div className="flex items-center gap-4 md:gap-8 w-full justify-center">
+      <div className="flex items-center w-full justify-center max-w-4xl">
         {/* Input Node */}
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2 z-10">
             <div className="px-6 py-3 rounded-lg border-2 border-zinc-700 bg-zinc-900 text-zinc-300 font-mono text-sm">
                 Input
             </div>
         </div>
 
-        {/* Arrow Right */}
-        <svg className="w-6 h-6 md:w-12 md:h-6 text-zinc-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-
-        {/* LLM Node (Central Hub) */}
-        <div className="relative flex flex-col items-center">
-            <div className="px-8 py-4 rounded-xl border-2 border-blue-500/30 bg-blue-500/10 text-blue-200 font-bold font-mono shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-                LLM
-            </div>
-            
-            {/* Vertical Connector to Tools */}
-            {tools.length > 0 && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 flex flex-col items-center h-12">
-                    <div className="w-0.5 h-full bg-zinc-700"></div>
-                    {/* Horizontal bar connecting tools if multiple */}
-                    {tools.length > 1 && (
-                        <div className="absolute bottom-0 w-[120%] h-0.5 bg-zinc-700"></div>
-                    )}
-                </div>
-            )}
+        {/* Long Arrow Right */}
+        <div className="flex-1 h-0.5 bg-zinc-700 relative mx-4">
+            <svg className="absolute -right-1 -top-1.5 w-4 h-4 text-zinc-700" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
         </div>
 
-        {/* Arrow Right */}
-        <svg className="w-6 h-6 md:w-12 md:h-6 text-zinc-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        {/* LLM Node (Central Hub) */}
+        <div className="relative flex flex-col items-center z-10">
+            <div className="px-20 py-3 rounded-xl border-2 border-blue-500/30 bg-blue-500/10 text-blue-200 font-bold font-mono text-lg shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                LLM
+            </div>
+        </div>
+
+        {/* Long Arrow Right */}
+        <div className="flex-1 h-0.5 bg-zinc-700 relative mx-4">
+            <svg className="absolute -right-1 -top-1.5 w-4 h-4 text-zinc-700" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+        </div>
 
         {/* Output Node */}
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2 z-10">
             <div className="px-6 py-3 rounded-lg border-2 border-zinc-700 bg-zinc-900 text-zinc-300 font-mono text-sm">
                 Output
             </div>
@@ -74,24 +67,33 @@ export const WorkflowDiagram: React.FC<WorkflowDiagramProps> = ({ tools }) => {
 
       {/* Tools Section */}
       {tools.length > 0 && (
-          <div className="flex gap-8 md:gap-12 mt-4 relative">
+          <div className="flex gap-16 md:gap-8 relative mt-4">
              {/* Arrows pointing up to LLM */}
               {tools.map((tool, index) => (
-                  <div key={index} className="flex flex-col items-center gap-3 relative group">
-                      {/* Connection Line */}
-                      <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-0.5 h-8 bg-zinc-700"></div>
-                      <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-2 h-2 border-l-2 border-t-2 border-zinc-700 rotate-45 transform bg-[#0e0e11]"></div>
-                      <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-2 h-2 border-r-2 border-b-2 border-zinc-700 rotate-45 transform bg-[#0e0e11]"></div>
+                  <div key={index} className="flex flex-col items-center gap-4 relative group">
+                      {/* Bidirectional Connection Lines */}
+                      <div className="absolute -top-16 left-[40%] -translate-x-1/2 w-0.5 h-16 bg-zinc-700/50">
+                        {/* Up Arrow */}
+                        <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 border-l-2 border-t-2 border-zinc-700/50 rotate-45 transform"></div>
+                      </div>
+                      <div className="absolute -top-16 left-[60%] -translate-x-1/2 w-0.5 h-16 bg-zinc-700/50">
+                        {/* Down Arrow */}
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 border-r-2 border-b-2 border-zinc-700/50 rotate-45 transform"></div>
+                      </div>
 
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl border border-zinc-700 bg-zinc-900 p-3 flex items-center justify-center transition-transform hover:scale-105 hover:border-zinc-500 hover:shadow-lg">
-                          {tool.imageSrc ? (
+                      <div className="mt-3 w-20 h-20 rounded-2xl border border-zinc-700 bg-zinc-900 p-4 flex items-center justify-center transition-all hover:scale-105 hover:border-zinc-500 hover:shadow-xl hover:-translate-y-1">
+                          {(tool.imageSrc || tool.image) ? (
                               // eslint-disable-next-line @next/next/no-img-element
-                              <img src={tool.imageSrc} alt={tool.label} className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+                              <img 
+                                src={tool.imageSrc || tool.image} 
+                                alt={tool.label} 
+                                className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" 
+                              />
                           ) : (
-                              <div className="text-2xl text-zinc-500 font-bold">?</div>
+                              <div className="text-3xl text-zinc-500 font-bold">?</div>
                           )}
                       </div>
-                      <span className="text-xs text-zinc-500 font-mono uppercase tracking-wider">{tool.label}</span>
+                      <span className="text-xs text-zinc-500 font-mono uppercase tracking-wider bg-[#0e0e11] px-2 py-1 rounded border border-zinc-800/50">{tool.label}</span>
                   </div>
               ))}
           </div>
